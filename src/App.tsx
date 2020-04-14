@@ -1,6 +1,12 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import axios from 'axios';
+import { BASE_URL } from './config';
+
+axios.defaults.baseURL = BASE_URL;
+axios.defaults.headers['Accept'] = 'application/json';
+axios.defaults.headers['Content-Type'] = 'application/json';
 
 function App() {
   return (
