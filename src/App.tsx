@@ -1,32 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import axios from 'axios';
-import { BASE_URL } from './config';
+import { Switch, Route, Redirect } from 'react-router-dom';
+import styles from './App.module.css';
+import { generateAsyncComponent } from './components/AsyncComponent';
+import OverlayLoading from './components/OverlayLoading';
 
-axios.defaults.baseURL = BASE_URL;
-axios.defaults.headers['Accept'] = 'application/json';
-axios.defaults.headers['Content-Type'] = 'application/json';
+const Home = generateAsyncComponent(() =>
+  import(/* webpackChunkName: "Home" */ './screens/Home')
+);
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={styles.container}>
+      <Switch>
+        <Route path="/home" component={Home} />
+        <Redirect from="*" to="/home" />
+      </Switch>
+      <OverlayLoading />
     </div>
   );
-}
+};
 
 export default App;

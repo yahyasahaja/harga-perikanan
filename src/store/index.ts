@@ -2,6 +2,7 @@ import {
   configureStore,
   getDefaultMiddleware,
   combineReducers,
+  EnhancedStore,
 } from '@reduxjs/toolkit';
 
 import { fishPriceReducer } from './FishPrice';
@@ -15,11 +16,17 @@ const rootReducer = combineReducers({
 });
 const middleware = getDefaultMiddleware();
 
-const store = configureStore({
+export const store = configureStore({
   reducer: rootReducer,
   middleware,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
 
-export default store;
+declare global {
+  interface Window {
+    clientStore: EnhancedStore;
+  }
+}
+
+export default window.clientStore = store;
