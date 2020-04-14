@@ -1,0 +1,71 @@
+@import 'variables';
+
+.container {
+  display: block;
+  width: 300px;
+  background: white;
+  padding: 20px;
+  border-radius: 20px;
+  border: 1px solid #dadada;
+  font-size: 10pt;
+  margin: 10px;
+  transition: 0.2s;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.1);
+    border-color: $primary;
+    box-shadow: 1px 1px 15px #32ba9b36;
+  }
+
+  &:active {
+    border-color: $primary;
+    transform: scale(1.05);
+    opacity: 0.5;
+    transition: 0.1s;
+    box-shadow: 1px 1px 15px #32ba9b36;
+  }
+
+  .komoditas, .province, .city {
+    display: flex;
+    justify-content: space-between;
+    padding: 7px 10px;
+    border-bottom: 1px solid #f1f1f1;
+    margin: 10px 0;
+    
+    .key {
+      display: block;
+      color: grey;
+    }
+    .value {
+      display: block;
+      text-transform: capitalize;
+      font-weight: 500;
+    }
+  }
+
+  .numbers-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 10px;
+
+    .size, .price {
+      display: block;
+      text-align: center;
+
+      .key {
+        display: block;
+        font-size: 9pt;
+      }
+
+      .value {
+        display: block;
+        font-size: 20pt;
+      }
+    }
+
+    .price .value {
+      color: $primary;
+    }
+  }
+}

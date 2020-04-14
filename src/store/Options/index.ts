@@ -5,9 +5,11 @@ import {
   SizeOption,
   fetchAreaOptionApi,
   fetchSizeOptionApi,
+  LabelValue,
 } from '../../api/fishPricelistAPI';
 import { ThunkAction } from 'redux-thunk';
 import { RootState } from '..';
+import { convertWordToLabelValue } from 'utils';
 
 export type AppThunk = ThunkAction<void, RootState, unknown, Action<string>>;
 
@@ -28,7 +30,7 @@ const optionInitialState: OptionState = {
 };
 
 type AreaOptionsMap = {
-  [provinceName: string]: [string];
+  [provinceName: string]: LabelValue[];
 };
 
 export const optionSlice = createSlice({
@@ -49,13 +51,20 @@ export const optionSlice = createSlice({
 
       const areaOptionsMap: AreaOptionsMap = {};
       areaOptions.forEach((areaOption) => {
-        areaOptionsMap[areaOption.province].push(areaOption.city);
+        if (!areaOptionsMap[areaOption.province]) {
+          areaOptionsMap[areaOption.province] = [];
+        }
+        if (areaOption.city) {
+          areaOptionsMap[areaOption.province].push(
+            convertWordToLabelValue(areaOption.city)
+          );
+        }
       });
 
       const mappedAreaOptions: MappedAreaOption[] = [];
       for (const i in areaOptionsMap) {
         mappedAreaOptions.push({
-          province: i,
+          province: convertWordToLabelValue(i),
           cities: areaOptionsMap[i],
         });
       }

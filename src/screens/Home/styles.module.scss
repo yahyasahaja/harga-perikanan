@@ -1,3 +1,48 @@
+@import 'variables';
+
 .container {
   display: block;
+
+  .wrapper {
+    display: block;
+    width: 100%;
+    margin: 25px 0;
+
+    .logo {
+      height: 50px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+
+      img {
+        height: 100%;
+      }
+    }
+
+    .card-wrapper {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      padding-top: 30px;
+
+      .loading-wrapper {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: flex-start;
+      }
+
+      .fetched-all {
+        text-align: center;
+        margin-top: 10px;
+        color: $primary;
+        padding: 20px;
+        border: 1px dashed $primary;
+        border-radius: 20px;
+        width: 100%;
+      }
+    }
+  }
 }

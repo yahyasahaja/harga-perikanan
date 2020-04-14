@@ -1,3 +1,5 @@
+// import { convertArrayToLabelValue } from 'utils';
+
 export const BASE_URL =
   'https://stein.efishery.com/v1/storages/5e1edf521073e315924ceab4';
 
@@ -10,3 +12,9 @@ export const COLORS = {
   clouds: '#ecf0f1',
   background: '#f6f7f9',
 };
+// const searchKeys = convertArrayToLabelValue(['komoditas', 'price']);
+// searchKeys.unshift({
+//   label: 'Semua',
+//   value: '',
+// });
+// export const SEARCH_KEY_OPTIONS = searchKeys;

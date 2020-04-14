@@ -1,6 +1,7 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import styles from './App.module.css';
+import styles from './App.module.scss';
+import './variables.scss';
 import { generateAsyncComponent } from './components/AsyncComponent';
 import OverlayLoading from './components/OverlayLoading';
 

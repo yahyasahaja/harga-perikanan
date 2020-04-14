@@ -20,9 +20,14 @@ export interface SizeOption {
   size: string;
 }
 
+export interface LabelValue {
+  label: string;
+  value: string;
+}
+
 export interface MappedAreaOption {
-  province: string;
-  cities: string[];
+  province: LabelValue;
+  cities: LabelValue[];
 }
 
 export const fetchAreaOptionApi = async () => {

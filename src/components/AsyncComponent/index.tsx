@@ -1,5 +1,5 @@
 //MODULES
-import LinearProgress from '@material-ui/core/LinearProgress';
+import ProgressBar from 'react-bootstrap/ProgressBar';
 import React from 'react';
 import styles from './styles.module.scss';
 
@@ -49,7 +49,7 @@ export const generateAsyncComponent: AsyncComponentFunctionType = (
     if (loading) {
       return (
         <div className={styles['page-loading']}>
-          <LinearProgress />
+          <ProgressBar animated striped variant="success" now={100} />
         </div>
       );
     }
